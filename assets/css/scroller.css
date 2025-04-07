@@ -1,0 +1,89 @@
+.scroller {
+  max-width: 300px;
+  margin: auto;
+}
+
+.scroller__inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px;
+
+  img {
+    max-width: 90px;
+    aspect-ratio: 1;
+    align-self: center;
+  }
+}
+
+.scroller[data-animated=true]{
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, white, 10%, white, 90%, transparent);
+  mask: linear-gradient(90deg, transparent, white, 10%, white, 90%, transparent);
+}
+
+.scroller[data-animated=true] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: 
+    scroll 
+    var(--_animation-duration-slider, 40s)
+    var(--_animation-direction, forwards)
+    linear infinite;
+}
+
+.scroller[data-animated=true] .scroller__inner > img {
+  animation: 
+    scroll 
+    var(--_animation-duration-slider, 40s)
+    var(--_animation-direction, forwards)
+    linear infinite;
+}
+
+.scroller[data-direction="right"]{
+   --_animation-direction: reverse;
+}
+
+
+ /* ================ TEXT for item scroller ============ */
+
+.wrapper-item-scroller{
+  display: grid;
+  grid-template-rows: 90% 1fr ;
+  max-width: 100px;
+  margin: 0 10px;
+  gap: 10px;
+  max-height: 100px;
+  justify-items: center;
+}
+
+
+
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0px ));
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .scroller {
+    max-width: 400px
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  .scroller {
+    max-width: 700px
+  }
+  
+}
+
+
+
+@media screen and (min-width: 1118px) {
+  .scroller {
+    max-width: 900px;
+  }
+}

@@ -1,5 +1,7 @@
 
 @import url("particles.css");
+@import url("scroller.css");
+@import url("buttonCTA.css");
 @import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
@@ -27,8 +29,13 @@
 }
 
 main {
-  padding: 50px;
+  /* min-height: 100vh; */
+  margin-top: 30px;
+}
+
+.landing-section {
   min-height: 100vh;
+  min-width: 100%;
 }
 body {
   font-family: Poppins, Roboto, sans-serif;
@@ -53,6 +60,7 @@ body {
     line-height: 1.2;
     font-family: 'Mona Sans', sans-serif;
     font-weight: var(--title-weight);
+    z-index: 2;
   }
 
   p {
@@ -61,9 +69,10 @@ body {
     color: var(--main-font-color-darken);
     font-size: 0.9375rem;
     line-height: 20px;
+    z-index: 2;
   }
 
-  button {
+  /* button {
     min-width: 9.375rem;
     height: 40px;
     border: none;
@@ -75,7 +84,7 @@ body {
       transition: all 0.3s ease-in-out;
       background-color: var(--secondary-color-lighten);
     }
-  }
+  } */
 }
 
 /* HEADER */ 
@@ -327,67 +336,9 @@ a {
   background-color: var(--bg-body);
 }
 
-.scroller {
-  max-width: 300px;
-}
-
-.scroller__inner {
-  padding-block: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-
-  img {
-    max-width: 6.25rem;
-    aspect-ratio: 1;
-  }
-}
-
-.scroller[data-animated=true]{
-  overflow: hidden;
-  -webkit-mask: linear-gradient(90deg, transparent, white, 10%, white, 90%, transparent);
-  mask: linear-gradient(90deg, transparent, white, 10%, white, 90%, transparent);
-}
-
-.scroller[data-animated=true] .scroller__inner {
-  width: max-content;
-  flex-wrap: nowrap;
-  animation: 
-    scroll 
-    var(--_animation-duration-slider, 10s)
-    var(--_animation-direction, forwards)
-    linear infinite;
-}
-
-.scroller[data-animated=true] .scroller__inner > img {
-  animation: 
-    scroll 
-    var(--_animation-duration-slider, 40s)
-    var(--_animation-direction, forwards)
-    linear infinite;
-}
-
-.scroller[data-direction="right"]{
-   --_animation-direction: reverse;
-}
-
-.technologies-wrapper > p {
-  padding-block: 1rem;
-  text-align: center;
-}
-
-
-
-
-@keyframes scroll {
-  to {
-    transform: translate(calc(-50% - 0.5rem));
-  }
-}
-
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 340px) {
+@media screen and (min-width: 320px) {
   .container {
     margin-inline: 1rem;
   }
@@ -395,7 +346,29 @@ a {
   .nav__link {
     padding-inline: 1rem;
   }
+
 }
+
+
+.technologies-wrapper > p {
+  padding-block: 2rem;
+  text-align: center;
+}
+
+.landing-home{
+  /* background-image: url(../images/hero-techno/bg.jpg); */
+}
+
+.details-section{
+  background-color: #000;
+}
+
+
+@media screen and (min-width: 480px) {
+
+}
+
+
 
 /* For large devices */
 @media screen and (min-width: 1118px) {
@@ -472,10 +445,6 @@ a {
     top: 0;
     pointer-events: initial;
     transition: top .3s;
-  }
-
-  .scroller {
-    max-width: 900px;
   }
 }
 
